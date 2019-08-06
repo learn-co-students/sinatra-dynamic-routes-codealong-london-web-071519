@@ -1,4 +1,5 @@
 require_relative 'config/environment'
+require 'pry'
 
 class App < Sinatra::Base
 
@@ -14,5 +15,13 @@ class App < Sinatra::Base
   end
 
   # Code your final two routes here:
+  get "/goodbye/:person" do
+    @person_name = params[:person]
+    "Goodbye, #{@person_name}."
+  end
 
+  get "/multiply/:number1/:number2" do
+    @total = params[:number1].to_i * params[:number2].to_i
+    "#{@total}"
+  end
 end
